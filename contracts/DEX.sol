@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <0.8.0;
 
-import "./ERC20.sol";
+import "./BCD.sol";
 
 contract DEX {
     
@@ -12,7 +12,7 @@ contract DEX {
     event Sold(uint amount);
 
     constructor() public {
-        token = new ERC20("BChain Dynamics", "BCD");
+        token = new BCD();
     }
 
     function buy() payable public {
@@ -33,5 +33,9 @@ contract DEX {
         token.transferFrom(msg.sender, address(this), amount);
         msg.sender.transfer(amount);
         emit Sold(amount);
+    }
+
+    function balanceOf(address account) view public {
+        token.balanceOf(account);
     }
 }

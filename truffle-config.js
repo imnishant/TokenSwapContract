@@ -7,6 +7,11 @@ const mnemonic = "casino venue moon holiday estate illegal brave hockey jaguar c
 
 // Module exports to make this configuration available to Truffle itself
 module.exports = {
+  compilers: {
+    solc: {
+      version: "0.6.5"
+    }
+  },
   // Object with configuration for each network
   networks: {
     // Configuration for mainnet
@@ -18,13 +23,13 @@ module.exports = {
       network_id: "1"
     },
     // Configuration for rinkeby network
-    rinkeby: {
+    ropsten: {
       // Special function to setup the provider
       provider: function () {
         // Setting the provider with the Infura Rinkeby address and Token
-        return new HDWalletProvider(mnemonic, "https://rinkeby.infura.io/v3/93a2c864928047498415c8ae0970b848")
+        return new HDWalletProvider(mnemonic, "https://ropsten.infura.io/v3/93a2c864928047498415c8ae0970b848")
       },
-      network_id: "4"
+      network_id: "3"
     }
   }
 }; 
